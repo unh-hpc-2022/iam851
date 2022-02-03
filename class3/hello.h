@@ -2,5 +2,6 @@
 #define HELLO_H
 
 void greeting(void);
+int factorial(int);
 
 #endif
