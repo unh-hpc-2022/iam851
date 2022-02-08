@@ -1,3 +1,3 @@
 #! /bin/bash
 
-g++ hello.cxx -o hello
+g++ hello.cxx greeting.cxx -o hello
