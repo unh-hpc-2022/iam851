@@ -1,9 +1,9 @@
 
 #include "hello.h"
 
-#include <stdio.h>
+#include <iostream>
 
-void greeting(const char* name)
+void greeting(std::string name)
 {
-  printf("Hi there, %s.\n", name);
+  std::cout << "Hi there, " << name << "\n";
 }

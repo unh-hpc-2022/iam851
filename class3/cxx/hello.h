@@ -1,7 +1,9 @@
 #ifndef HELLO_H
 #define HELLO_H
 
-void greeting(const char*);
+#include <string>
+
+void greeting(std::string name);
 int factorial(int);
 
 #endif
