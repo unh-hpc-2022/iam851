@@ -6,13 +6,13 @@ CFLAGS = -Wall
 # CXXFLAGS = -Wall
 
 hello: hello.o factorial.o greeting.o
-	$(CC) hello.o factorial.o greeting.o -o hello
+	$(CC) $^ -o $@
 
 hello.o: hello.c
-	$(CC) $(CFLAGS) -c hello.c
+	$(CC) $(CFLAGS) -c $<
 
 greeting.o: greeting.c
-	$(CC) $(CFLAGS) -c greeting.c
+	$(CC) $(CFLAGS) -c $<
 
 factorial.o: factorial.c
-	$(CC) $(CFLAGS) -c factorial.c
+	$(CC) $(CFLAGS) -c $<
