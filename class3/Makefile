@@ -6,7 +6,3 @@ CFLAGS = -Wall
 # CXXFLAGS = -Wall
 
 hello: hello.o factorial.o greeting.o
-	$(CC) $^ -o $@
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $<
