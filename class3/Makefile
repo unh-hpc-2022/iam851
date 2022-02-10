@@ -1,11 +1,18 @@
+# for C
+CC = gcc
+CFLAGS = -Wall
+# for C++
+# CXX = g++
+# CXXFLAGS = -Wall
+
 hello: hello.o factorial.o greeting.o
-	gcc hello.o factorial.o greeting.o -o hello
+	$(CC) hello.o factorial.o greeting.o -o hello
 
 hello.o: hello.c
-	gcc -c hello.c
+	$(CC) $(CFLAGS) -c hello.c
 
 greeting.o: greeting.c
-	gcc -c greeting.c
+	$(CC) $(CFLAGS) -c greeting.c
 
 factorial.o: factorial.c
-	gcc -c factorial.c
+	$(CC) $(CFLAGS) -c factorial.c
