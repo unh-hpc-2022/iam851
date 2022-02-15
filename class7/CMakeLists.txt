@@ -2,6 +2,8 @@ cmake_minimum_required (VERSION 3.16)
 
 project(HelloCpp)
 
+include(CTest)
+
 add_library(stuff greeting.cxx factorial.cxx)
 
 add_executable(hello hello.cxx)
