@@ -17,11 +17,11 @@ int main(int argc, char** argv)
   vector_construct(&y, N);
 
   for (int i = 0; i < x.n; i++) {
-    x.data[i] = 1 + i;
+    VEC(&x, i) = 1 + i;
   }
 
   for (int i = 0; i < y.n; i++) {
-    y.data[i] = 2 + i;
+    VEC(&y, i) = 2 + i;
   }
 
   assert(vector_dot(&x, &y) == 20.);
