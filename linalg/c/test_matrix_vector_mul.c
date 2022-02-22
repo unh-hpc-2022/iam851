@@ -18,7 +18,7 @@ int main(int argc, char** argv)
   // clang-format on
   double y[N];
 
-  matrix_vector_mul(A, x, y);
+  matrix_vector_mul(N, A, x, y);
   assert(y[0] == 3. && y[1] == 4. && y[2] == 9.);
 
   return 0;
