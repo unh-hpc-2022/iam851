@@ -28,7 +28,7 @@ int main(int argc, char** argv)
     y.data[i] = 2 + i;
   }
 
-  assert(vector_dot(x.data, y.data, x.n) == 20.);
+  assert(vector_dot(&x, &y) == 20.);
 
   free(x.data);
   free(y.data);
