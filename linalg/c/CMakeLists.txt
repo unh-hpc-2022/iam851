@@ -1,5 +1,6 @@
 
-add_library(linalg vector_dot.c vector_add.c matrix_vector_mul.c)
+add_library(linalg vector_dot.c vector_add.c matrix_vector_mul.c
+  vector.c)
 
 link_libraries(linalg)
 

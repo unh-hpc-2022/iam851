@@ -13,12 +13,8 @@ int main(int argc, char** argv)
 {
   const int N = 3;
   struct vector x, y;
-
-  x.data = calloc(N, sizeof(double));
-  x.n = N;
-
-  y.data = calloc(N, sizeof(double));
-  y.n = N;
+  vector_construct(&x, N);
+  vector_construct(&y, N);
 
   for (int i = 0; i < x.n; i++) {
     x.data[i] = 1 + i;
@@ -30,8 +26,7 @@ int main(int argc, char** argv)
 
   assert(vector_dot(&x, &y) == 20.);
 
-  free(x.data);
-  free(y.data);
-
+  vector_destruct(&x);
+  vector_destruct(&y);
   return 0;
 }
