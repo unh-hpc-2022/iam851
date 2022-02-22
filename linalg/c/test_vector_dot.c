@@ -12,18 +12,26 @@
 int main(int argc, char** argv)
 {
   const int N = 3;
-  double* x = calloc(N, sizeof(double));
-  double* y = calloc(N, sizeof(double));
+  struct vector x, y;
 
-  for (int i = 0; i < N; i++) {
-    x[i] = 1 + i;
-    y[i] = 2 + i;
+  x.data = calloc(N, sizeof(double));
+  x.n = N;
+
+  y.data = calloc(N, sizeof(double));
+  y.n = N;
+
+  for (int i = 0; i < x.n; i++) {
+    x.data[i] = 1 + i;
   }
 
-  assert(vector_dot(x, y, N) == 20.);
+  for (int i = 0; i < y.n; i++) {
+    y.data[i] = 2 + i;
+  }
 
-  free(x);
-  free(y);
+  assert(vector_dot(x.data, y.data, x.n) == 20.);
+
+  free(x.data);
+  free(y.data);
 
   return 0;
 }
