@@ -10,6 +10,7 @@
 
 int main(int argc, char** argv)
 {
+  const int N = 3;
   double x[N] = {1., 2., 3.};
   double y[N] = {2., 3., 4.};
 
