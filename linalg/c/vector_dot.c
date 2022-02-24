@@ -1,8 +1,7 @@
-#include <stdio.h>
 
-// vector length (fixed)
+#include "linear_algebra.h"
 
-#define N (3)
+#include <assert.h>
 
 // ----------------------------------------------------------------------
 // vector_dot
@@ -11,26 +10,12 @@
 // x: first vector
 // y: second vector
 
-double vector_dot(double* x, double* y)
+double vector_dot(const struct vector* x, const struct vector* y)
 {
+  assert(x->n == y->n);
   double sum = 0.f;
-  for (int i = 0; i < N; i++) {
-    sum += x[i] * y[i];
+  for (int i = 0; i < x->n; i++) {
+    sum += VEC(x, i) * VEC(y, i);
   }
   return sum;
-}
-
-// ----------------------------------------------------------------------
-// main
-//
-// test the vector_dot() function
-
-int main(int argc, char** argv)
-{
-  double x[N] = {1., 2., 3.};
-  double y[N] = {2., 3., 4.};
-
-  printf("dot product is %g\n", vector_dot(x, y));
-
-  return 0;
 }
