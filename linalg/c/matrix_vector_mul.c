@@ -1,13 +1,18 @@
 
 #include "linear_algebra.h"
 
-void matrix_vector_mul(int n, const double A[n][n], const struct vector* x,
+#include <assert.h>
+
+void matrix_vector_mul(const struct matrix* A, const struct vector* x,
                        struct vector* y)
 {
-  for (int j = 0; j < n; j++) {
+  assert(A->m == y->n);
+  assert(A->n == x->n);
+
+  for (int j = 0; j < y->n; j++) {
     VEC(y, j) = 0.;
-    for (int i = 0; i < n; i++) {
-      VEC(y, j) += A[j][i] * VEC(x, i);
+    for (int i = 0; i < x->n; i++) {
+      VEC(y, j) += MAT(A, j, i) * VEC(x, i);
     }
   }
 }
