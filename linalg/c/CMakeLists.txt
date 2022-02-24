@@ -12,3 +12,5 @@ add_test(TestVectorAdd test_vector_add)
 
 add_executable(test_matrix_vector_mul test_matrix_vector_mul.c)
 add_test(TestMatrixVectorMul test_matrix_vector_mul)
+
+add_executable(test_args test_args.c)
