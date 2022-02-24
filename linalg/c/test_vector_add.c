@@ -12,21 +12,26 @@
 int main(int argc, char** argv)
 {
   const int N = 4;
-  double* x = calloc(N, sizeof(double));
-  double* y = calloc(N, sizeof(double));
-  double* z = calloc(N, sizeof(double));
+  struct vector x, y, z;
+  vector_construct(&x, N);
+  vector_construct(&y, N);
+  vector_construct(&z, N);
 
-  for (int i = 0; i < N; i++) {
-    x[i] = 1 + i;
-    y[i] = 2 + i;
+  for (int i = 0; i < x.n; i++) {
+    VEC(&x, i) = 1 + i;
   }
 
-  vector_add(x, y, z, N);
-  assert(z[0] == 3. && z[1] == 5. && z[2] == 7. && z[3] == 9.);
+  for (int i = 0; i < y.n; i++) {
+    VEC(&y, i) = 2 + i;
+  }
 
-  free(x);
-  free(y);
-  free(z);
+  vector_add(&x, &y, &z);
+  assert(VEC(&z, 0) == 3. && VEC(&z, 1) == 5. && VEC(&z, 2) == 7. &&
+         VEC(&z, 3) == 9.);
+
+  vector_destruct(&x);
+  vector_destruct(&y);
+  vector_destruct(&z);
 
   return 0;
 }
