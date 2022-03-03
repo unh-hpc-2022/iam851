@@ -66,4 +66,11 @@ void matrix_vector_mul(const struct matrix* A, const struct vector* x,
 void matrix_matrix_mul(const struct matrix* A, const struct matrix* B,
                        struct matrix* C);
 
+// ----------------------------------------------------------------------
+
+#include <stdio.h>
+
+#define HERE                                                                   \
+  fprintf(stderr, "HERE at %s:%d (%s)\n", __FILE__, __LINE__, __FUNCTION__)
+
 #endif
