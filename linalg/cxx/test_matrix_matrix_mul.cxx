@@ -58,7 +58,7 @@ int main(int argc, char** argv)
   matrix_matrix_mul(A, B, C);
 
   //   printf("C = ");
-  //   matrix_print(&C);
+  //   C.print();
 
   // the resulting vector for this test should equal our reference result
   assert(matrix_is_equal(C, C_ref));

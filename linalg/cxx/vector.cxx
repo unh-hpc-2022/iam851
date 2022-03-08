@@ -18,11 +18,11 @@ void vector_destruct(vector& v)
   // v.n = 0;
 }
 
-void vector_print(const vector& v)
+void vector::print() const
 {
   printf("{");
-  for (int i = 0; i < v.n; i++) {
-    printf(" %g", VEC(v, i));
+  for (int i = 0; i < n; i++) {
+    printf(" %g", VEC(*this, i));
   }
   printf(" }\n");
 }
