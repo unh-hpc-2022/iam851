@@ -21,7 +21,7 @@ int main(int argc, char** argv)
     z_ref(i) = 3 + 2 * i;
   }
 
-  vector z = add(x, y);
+  vector z = x + y;
   assert(z == z_ref);
 
   // z.print();

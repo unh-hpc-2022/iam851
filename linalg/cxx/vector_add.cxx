@@ -3,7 +3,7 @@
 
 #include <assert.h>
 
-vector add(const vector& x, const vector& y)
+vector operator+(const vector& x, const vector& y)
 {
   assert(x.size() == y.size());
 
