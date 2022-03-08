@@ -3,6 +3,7 @@
 #define LINEAR_ALGEBRA_H
 
 #include <assert.h>
+#include <stdbool.h>
 
 // uncomment the following to enable bounds checking
 //#define BOUNDS_CHECK
@@ -31,6 +32,7 @@ struct vector
 void vector_construct(struct vector* v, int n);
 void vector_destruct(struct vector* v);
 void vector_print(const struct vector* v);
+bool vector_is_equal(const struct vector* x, const struct vector* y);
 
 // struct matrix
 //

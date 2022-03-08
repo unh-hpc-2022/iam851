@@ -26,3 +26,17 @@ void vector_print(const struct vector* v)
   }
   printf(" }\n");
 }
+
+bool vector_is_equal(const struct vector* x, const struct vector* y)
+{
+  if (x->n != y->n) {
+    return false;
+  }
+  for (int i = 0; i < x->n; i++) {
+    if (VEC(x, i) != VEC(y, i)) {
+      return false;
+    }
+  }
+
+  return true;
+}
