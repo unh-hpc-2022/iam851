@@ -45,11 +45,7 @@ int main(int argc, char** argv)
 {
   const int m = 5, n = 5, k = 2;
 
-  matrix A, B, C, C_ref;
-  matrix_construct(A, m, k);
-  matrix_construct(B, k, n);
-  matrix_construct(C, m, n);
-  matrix_construct(C_ref, m, n);
+  matrix A(m, k), B(k, n), C(m, n), C_ref(m, n);
 
   // build a test matrix
   setup_test_matrices(A, B, C_ref);

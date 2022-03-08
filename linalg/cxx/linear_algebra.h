@@ -42,6 +42,7 @@ bool vector_is_equal(const vector& x, const vector& y);
 
 struct matrix
 {
+  matrix(int m, int n);
   void print() const;
 
   double* data;
@@ -59,7 +60,6 @@ struct matrix
 #define MAT(A, i, j) ((A).data[(i) * (A).n + (j)])
 #endif
 
-void matrix_construct(matrix& A, int m, int n);
 void matrix_destruct(matrix& A);
 bool matrix_is_equal(const matrix& A, const matrix& B);
 

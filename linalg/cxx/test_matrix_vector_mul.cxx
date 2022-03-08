@@ -14,8 +14,7 @@ int main(int argc, char** argv)
   const int N = 3;
   vector x(N), y(N);
 
-  matrix A;
-  matrix_construct(A, N, N);
+  matrix A(N, N);
 
   for (int i = 0; i < N; i++) {
     VEC(x, i) = 1 + i;
