@@ -13,11 +13,7 @@
 int main(int argc, char** argv)
 {
   const int N = 4;
-  vector x, y, z, z_ref;
-  vector_construct(x, N);
-  vector_construct(y, N);
-  vector_construct(z, N);
-  vector_construct(z_ref, N);
+  vector x(N), y(N), z(N), z_ref(N);
 
   for (int i = 0; i < x.n; i++) {
     VEC(x, i) = 1 + i;

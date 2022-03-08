@@ -12,9 +12,7 @@
 int main(int argc, char** argv)
 {
   const int N = 3;
-  vector x, y;
-  vector_construct(x, N);
-  vector_construct(y, N);
+  vector x(N), y(N);
 
   matrix A;
   matrix_construct(A, N, N);

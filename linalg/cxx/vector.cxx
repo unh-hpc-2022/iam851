@@ -3,10 +3,10 @@
 
 #include <stdio.h>
 
-void vector_construct(vector& v, int n)
+vector::vector(int n_in)
 {
-  v.data = new double[n];
-  v.n = n;
+  data = new double[n_in];
+  n = n_in;
 }
 
 void vector_destruct(vector& v)

@@ -15,6 +15,7 @@
 
 struct vector
 {
+  vector(int n);
   void print() const;
 
   double* data;
@@ -31,7 +32,6 @@ struct vector
 #define VEC(v, i) ((v).data[i])
 #endif
 
-void vector_construct(vector& v, int n);
 void vector_destruct(vector& v);
 bool vector_is_equal(const vector& x, const vector& y);
 
