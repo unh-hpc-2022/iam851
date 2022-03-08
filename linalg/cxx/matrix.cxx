@@ -3,14 +3,16 @@
 
 #include <stdio.h>
 
-matrix::matrix(int m, int n) : m(m), n(n), data_(m * n) {}
+matrix::matrix(int n_rows, int n_cols)
+  : m_(n_rows), n_(n_cols), data_(n_rows * n_cols)
+{}
 
 std::ostream& operator<<(std::ostream& os, const matrix& A)
 {
   os << "{";
-  for (int i = 0; i < A.m; i++) {
+  for (int i = 0; i < A.n_rows(); i++) {
     os << "{";
-    for (int j = 0; j < A.n; j++) {
+    for (int j = 0; j < A.n_cols(); j++) {
       os << " " << A(i, j);
     }
     os << " }, ";
@@ -26,7 +28,7 @@ double matrix::operator()(int i, int j) const
   assert(i >= 0 && i < m);
   assert(j >= 0 && j < n);
 #endif
-  return data_[i * n + j];
+  return data_[i * n_ + j];
 }
 
 double& matrix::operator()(int i, int j)
@@ -35,17 +37,17 @@ double& matrix::operator()(int i, int j)
   assert(i >= 0 && i < m);
   assert(j >= 0 && j < n);
 #endif
-  return data_[i * n + j];
+  return data_[i * n_ + j];
 }
 
 bool operator==(const matrix& A, const matrix& B)
 {
-  if (A.m != B.m || A.n != B.n) {
+  if (A.n_rows() != B.n_rows() || A.n_cols() != B.n_cols()) {
     return false;
   }
 
-  for (int i = 0; i < A.m; i++) {
-    for (int j = 0; j < A.n; j++) {
+  for (int i = 0; i < A.n_rows(); i++) {
+    for (int j = 0; j < A.n_cols(); j++) {
       if (A(i, j) != B(i, j)) {
         return false;
       }
