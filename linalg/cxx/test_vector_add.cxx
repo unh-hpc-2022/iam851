@@ -22,7 +22,7 @@ int main(int argc, char** argv)
   }
 
   vector_add(x, y, z);
-  assert(vector_is_equal(z, z_ref));
+  assert(z == z_ref);
 
   // z.print();
 

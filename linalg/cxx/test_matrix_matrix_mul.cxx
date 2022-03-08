@@ -57,7 +57,7 @@ int main(int argc, char** argv)
   //   C.print();
 
   // the resulting vector for this test should equal our reference result
-  assert(matrix_is_equal(C, C_ref));
+  assert(C == C_ref);
 
   return 0;
 }

@@ -27,7 +27,7 @@ private:
   std::vector<double> data_;
 };
 
-bool vector_is_equal(const vector& x, const vector& y);
+bool operator==(const vector& x, const vector& y);
 
 // matrix
 //
@@ -49,7 +49,7 @@ private:
   std::vector<double> data_;
 };
 
-bool matrix_is_equal(const matrix& A, const matrix& B);
+bool operator==(const matrix& A, const matrix& B);
 
 double vector_dot(const vector& x, const vector& y);
 void vector_add(const vector& x, const vector& y, vector& z);
