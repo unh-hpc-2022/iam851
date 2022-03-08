@@ -1,9 +1,55 @@
 
+#include <gtest/gtest.h>
+
 #include "linear_algebra.h"
 
-#include <algorithm>
-#include <cassert>
-#include <iostream>
+TEST(LinearAlgebra, vector_dot)
+{
+  const int N = 3;
+  vector x(N), y(N);
+
+  for (int i = 0; i < x.size(); i++) {
+    x(i) = 1 + i;
+  }
+
+  for (int i = 0; i < y.size(); i++) {
+    y(i) = 2 + i;
+  }
+
+  EXPECT_EQ(dot(x, y), 20.);
+}
+
+TEST(LinearAlgebra, vector_add)
+{
+  const int N = 4;
+  vector x(N), y(N), z_ref(N);
+
+  for (int i = 0; i < x.size(); i++) {
+    x(i) = 1 + i;
+    y(i) = 2 + i;
+    z_ref(i) = 3 + 2 * i;
+  }
+
+  vector z = x + y;
+  EXPECT_EQ(z, z_ref);
+}
+
+TEST(LinearAlgebra, matrix_vector_mul)
+{
+  const int N = 3;
+  vector x(N), y(N);
+  matrix A(N, N);
+
+  for (int i = 0; i < N; i++) {
+    x(i) = 1 + i;
+    A(i, i) = 1 + i;
+  }
+  // add one off-diagonal non-zero element
+  A(0, 1) = 1.;
+
+  matrix_vector_mul(A, x, y);
+  EXPECT_TRUE(y(0) == 3. && y(1) == 4. && y(2) == 9.);
+}
 
 // ----------------------------------------------------------------------
 // setup_test_matrices
@@ -30,18 +76,13 @@ static void setup_test_matrices(matrix& A, matrix& B, matrix& C_ref)
   }
 }
 
-// ----------------------------------------------------------------------
-// main
-//
-// test the mat_vec_mul() function
-
-int main(int argc, char** argv)
+TEST(LinearAlgebra, matrix_matrix_mul)
 {
   const int m = 5, n = 5, k = 2;
 
   matrix A(m, k), B(k, n), C(m, n), C_ref(m, n);
 
-  // build a test matrix
+  // build test matrices
   setup_test_matrices(A, B, C_ref);
 
   // calculate C = AB
@@ -49,8 +90,5 @@ int main(int argc, char** argv)
 
   // std::cout << "C = " << C << "\n";
 
-  // the resulting vector for this test should equal our reference result
-  assert(C == C_ref);
-
-  return 0;
+  EXPECT_EQ(C, C_ref);
 }
