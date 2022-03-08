@@ -4,13 +4,13 @@
 #include <assert.h>
 
 // ----------------------------------------------------------------------
-// vector_dot
+// dot
 //
 // returns the dot product of the two vectors
 // x: first vector
 // y: second vector
 
-double vector_dot(const vector& x, const vector& y)
+double dot(const vector& x, const vector& y)
 {
   assert(x.size() == y.size());
   double sum = 0.f;

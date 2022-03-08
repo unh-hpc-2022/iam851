@@ -22,7 +22,7 @@ int main(int argc, char** argv)
     y(i) = 2 + i;
   }
 
-  assert(vector_dot(x, y) == 20.);
+  assert(dot(x, y) == 20.);
 
   return 0;
 }
