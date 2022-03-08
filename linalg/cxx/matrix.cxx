@@ -4,40 +4,40 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void matrix_construct(matrix* A, int m, int n)
+void matrix_construct(matrix& A, int m, int n)
 {
-  A->data = (double*)calloc(m * n, sizeof(*A->data));
-  A->m = m;
-  A->n = n;
+  A.data = (double*)calloc(m * n, sizeof(*A.data));
+  A.m = m;
+  A.n = n;
 }
 
-void matrix_destruct(matrix* A)
+void matrix_destruct(matrix& A)
 {
-  free(A->data);
+  free(A.data);
 }
 
-void matrix_print(const matrix* A)
+void matrix_print(const matrix& A)
 {
   printf("{\n");
-  for (int i = 0; i < A->m; i++) {
+  for (int i = 0; i < A.m; i++) {
     printf("{");
-    for (int j = 0; j < A->n; j++) {
-      printf(" %g", MAT(A, i, j));
+    for (int j = 0; j < A.n; j++) {
+      printf(" %g", MAT(&A, i, j));
     }
     printf(" }\n");
   }
   printf("}\n");
 }
 
-bool matrix_is_equal(const matrix* A, const matrix* B)
+bool matrix_is_equal(const matrix& A, const matrix& B)
 {
-  if (A->m != B->m || A->n != B->n) {
+  if (A.m != B.m || A.n != B.n) {
     return false;
   }
 
-  for (int i = 0; i < A->m; i++) {
-    for (int j = 0; j < A->n; j++) {
-      if (MAT(A, i, j) != MAT(B, i, j)) {
+  for (int i = 0; i < A.m; i++) {
+    for (int j = 0; j < A.n; j++) {
+      if (MAT(&A, i, j) != MAT(&B, i, j)) {
         return false;
       }
     }
