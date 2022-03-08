@@ -26,10 +26,5 @@ int main(int argc, char** argv)
 
   // z.print();
 
-  vector_destruct(x);
-  vector_destruct(y);
-  vector_destruct(z);
-  vector_destruct(z_ref);
-
   return 0;
 }

@@ -59,11 +59,5 @@ int main(int argc, char** argv)
   // the resulting vector for this test should equal our reference result
   assert(matrix_is_equal(C, C_ref));
 
-  // clean up
-  matrix_destruct(A);
-  matrix_destruct(B);
-  matrix_destruct(C);
-  matrix_destruct(C_ref);
-
   return 0;
 }

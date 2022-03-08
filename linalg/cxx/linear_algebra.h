@@ -16,6 +16,7 @@
 struct vector
 {
   vector(int n);
+  ~vector();
   void print() const;
 
   double* data;
@@ -32,7 +33,6 @@ struct vector
 #define VEC(v, i) ((v).data[i])
 #endif
 
-void vector_destruct(vector& v);
 bool vector_is_equal(const vector& x, const vector& y);
 
 // matrix
@@ -43,6 +43,7 @@ bool vector_is_equal(const vector& x, const vector& y);
 struct matrix
 {
   matrix(int m, int n);
+  ~matrix();
   void print() const;
 
   double* data;
@@ -60,7 +61,6 @@ struct matrix
 #define MAT(A, i, j) ((A).data[(i) * (A).n + (j)])
 #endif
 
-void matrix_destruct(matrix& A);
 bool matrix_is_equal(const matrix& A, const matrix& B);
 
 double vector_dot(const vector& x, const vector& y);

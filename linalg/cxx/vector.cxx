@@ -5,12 +5,12 @@
 
 vector::vector(int n_in) : data(new double[n_in]), n(n_in) {}
 
-void vector_destruct(vector& v)
+vector::~vector()
 {
-  delete[] v.data;
+  delete[] data;
   // The below isn't necessary, but may help make certain bugs more obvious.
-  // v.data = NULL;
-  // v.n = 0;
+  // data = NULL;
+  // n = 0;
 }
 
 void vector::print() const

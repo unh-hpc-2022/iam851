@@ -7,9 +7,9 @@ matrix::matrix(int m_in, int n_in)
   : data(new double[m_in * n_in]), m(m_in), n(n_in)
 {}
 
-void matrix_destruct(matrix& A)
+matrix::~matrix()
 {
-  delete[] A.data;
+  delete[] data;
 }
 
 void matrix::print() const

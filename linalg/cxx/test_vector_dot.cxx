@@ -24,7 +24,5 @@ int main(int argc, char** argv)
 
   assert(vector_dot(x, y) == 20.);
 
-  vector_destruct(x);
-  vector_destruct(y);
   return 0;
 }

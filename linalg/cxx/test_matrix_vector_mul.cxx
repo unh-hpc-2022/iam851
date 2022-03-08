@@ -26,9 +26,5 @@ int main(int argc, char** argv)
   matrix_vector_mul(A, x, y);
   assert(VEC(y, 0) == 3. && VEC(y, 1) == 4. && VEC(y, 2) == 9.);
 
-  vector_destruct(x);
-  vector_destruct(y);
-  matrix_destruct(A);
-
   return 0;
 }
