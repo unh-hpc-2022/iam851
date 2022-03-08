@@ -34,17 +34,19 @@ bool vector_is_equal(const vector& x, const vector& y);
 // encapsulates what makes up a matrix -- how many rows (m), how many columns,
 // as well as the actual elements data[0] ... data[m*n-1]
 
-struct matrix
+class matrix
 {
+public:
   matrix(int m, int n);
-  ~matrix();
   void print() const;
 
   double operator()(int i, int j) const;
   double& operator()(int i, int j);
 
-  double* data;
   int m, n;
+
+private:
+  std::vector<double> data_;
 };
 
 bool matrix_is_equal(const matrix& A, const matrix& B);
