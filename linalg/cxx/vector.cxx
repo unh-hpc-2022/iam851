@@ -5,13 +5,15 @@
 
 vector::vector(int n) : data_(n) {}
 
-void vector::print() const
+std::ostream& operator<<(std::ostream& os, const vector& v)
 {
-  printf("{");
-  for (int i = 0; i < size(); i++) {
-    printf(" %g", (*this)(i));
+  os << "{";
+  for (int i = 0; i < v.size(); i++) {
+    os << " " << v(i);
   }
-  printf(" }\n");
+  os << " }";
+
+  return os;
 }
 
 int vector::size() const

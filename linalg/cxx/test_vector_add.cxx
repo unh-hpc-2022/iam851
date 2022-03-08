@@ -1,9 +1,8 @@
 
 #include "linear_algebra.h"
 
-#include <assert.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include <cassert>
+#include <iostream>
 
 // ----------------------------------------------------------------------
 // main
@@ -24,7 +23,7 @@ int main(int argc, char** argv)
   vector z = x + y;
   assert(z == z_ref);
 
-  // z.print();
+  // std::cout << z << "\n";
 
   return 0;
 }

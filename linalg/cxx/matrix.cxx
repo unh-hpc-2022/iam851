@@ -5,17 +5,19 @@
 
 matrix::matrix(int m, int n) : m(m), n(n), data_(m * n) {}
 
-void matrix::print() const
+std::ostream& operator<<(std::ostream& os, const matrix& A)
 {
-  printf("{\n");
-  for (int i = 0; i < m; i++) {
-    printf("{");
-    for (int j = 0; j < n; j++) {
-      printf(" %g", (*this)(i, j));
+  os << "{";
+  for (int i = 0; i < A.m; i++) {
+    os << "{";
+    for (int j = 0; j < A.n; j++) {
+      os << " " << A(i, j);
     }
-    printf(" }\n");
+    os << " }, ";
   }
-  printf("}\n");
+  os << "}";
+
+  return os;
 }
 
 double matrix::operator()(int i, int j) const

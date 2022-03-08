@@ -3,7 +3,7 @@
 
 #include <algorithm>
 #include <cassert>
-#include <cstdio>
+#include <iostream>
 
 // ----------------------------------------------------------------------
 // setup_test_matrices
@@ -45,8 +45,7 @@ int main(int argc, char** argv)
   // calculate C = AB
   matrix_matrix_mul(A, B, C);
 
-  //   printf("C = ");
-  //   C.print();
+  // std::cout << "C = " << C << "\n";
 
   // the resulting vector for this test should equal our reference result
   assert(C == C_ref);

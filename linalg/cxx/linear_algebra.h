@@ -2,7 +2,7 @@
 #ifndef LINEAR_ALGEBRA_H
 #define LINEAR_ALGEBRA_H
 
-#include <assert.h>
+#include <ostream>
 #include <vector>
 
 // uncomment the following to enable bounds checking
@@ -17,7 +17,6 @@ class vector
 {
 public:
   vector(int n);
-  void print() const;
 
   int size() const;
   double operator()(int i) const;
@@ -28,6 +27,7 @@ private:
 };
 
 bool operator==(const vector& x, const vector& y);
+std::ostream& operator<<(std::ostream& os, const vector& v);
 
 // matrix
 //
@@ -38,7 +38,6 @@ class matrix
 {
 public:
   matrix(int m, int n);
-  void print() const;
 
   double operator()(int i, int j) const;
   double& operator()(int i, int j);
@@ -50,6 +49,7 @@ private:
 };
 
 bool operator==(const matrix& A, const matrix& B);
+std::ostream& operator<<(std::ostream& os, const matrix& A);
 
 double dot(const vector& x, const vector& y);
 vector operator+(const vector& x, const vector& y);
