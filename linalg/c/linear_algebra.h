@@ -59,6 +59,7 @@ struct matrix
 void matrix_construct(struct matrix* A, int m, int n);
 void matrix_destruct(struct matrix* A);
 void matrix_print(const struct matrix* A);
+bool matrix_is_equal(const struct matrix* A, const struct matrix* B);
 
 double vector_dot(const struct vector* x, const struct vector* y);
 void vector_add(const struct vector* x, const struct vector* y,
