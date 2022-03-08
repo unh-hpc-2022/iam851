@@ -19,19 +19,12 @@ struct vector
   ~vector();
   void print() const;
 
+  double operator()(int i) const;
+  double& operator()(int i);
+
   double* data;
   int n;
 };
-
-#ifdef BOUNDS_CHECK
-#define VEC(v, i)                                                              \
-  (*({                                                                         \
-    assert(i >= 0 && i < (v).n);                                               \
-    &(v).data[i];                                                              \
-  }))
-#else
-#define VEC(v, i) ((v).data[i])
-#endif
 
 bool vector_is_equal(const vector& x, const vector& y);
 

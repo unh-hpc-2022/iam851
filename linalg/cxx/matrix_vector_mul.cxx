@@ -9,9 +9,9 @@ void matrix_vector_mul(const matrix& A, const vector& x, vector& y)
   assert(A.n == x.n);
 
   for (int j = 0; j < y.n; j++) {
-    VEC(y, j) = 0.;
+    y(j) = 0.;
     for (int i = 0; i < x.n; i++) {
-      VEC(y, j) += A(j, i) * VEC(x, i);
+      y(j) += A(j, i) * x(i);
     }
   }
 }

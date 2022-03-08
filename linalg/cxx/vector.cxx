@@ -17,9 +17,25 @@ void vector::print() const
 {
   printf("{");
   for (int i = 0; i < n; i++) {
-    printf(" %g", VEC(*this, i));
+    printf(" %g", (*this)(i));
   }
   printf(" }\n");
+}
+
+double vector::operator()(int i) const
+{
+#ifdef BOUNDS_CHECK
+  assert(i >= 0 && i < n);
+#endif
+  return data[i];
+}
+
+double& vector::operator()(int i)
+{
+#ifdef BOUNDS_CHECK
+  assert(i >= 0 && i < n);
+#endif
+  return data[i];
 }
 
 bool vector_is_equal(const vector& x, const vector& y)
@@ -28,7 +44,7 @@ bool vector_is_equal(const vector& x, const vector& y)
     return false;
   }
   for (int i = 0; i < x.n; i++) {
-    if (VEC(x, i) != VEC(y, i)) {
+    if (x(i) != y(i)) {
       return false;
     }
   }
