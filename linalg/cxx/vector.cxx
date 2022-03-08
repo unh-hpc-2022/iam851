@@ -3,11 +3,7 @@
 
 #include <stdio.h>
 
-vector::vector(int n_in)
-{
-  data = new double[n_in];
-  n = n_in;
-}
+vector::vector(int n_in) : data(new double[n_in]), n(n_in) {}
 
 void vector_destruct(vector& v)
 {
