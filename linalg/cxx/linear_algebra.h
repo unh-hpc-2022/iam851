@@ -3,7 +3,7 @@
 #define LINEAR_ALGEBRA_H
 
 #include <assert.h>
-#include <stdbool.h>
+#include <vector>
 
 // uncomment the following to enable bounds checking
 //#define BOUNDS_CHECK
@@ -17,7 +17,6 @@ class vector
 {
 public:
   vector(int n);
-  ~vector();
   void print() const;
 
   int size() const;
@@ -25,8 +24,7 @@ public:
   double& operator()(int i);
 
 private:
-  double* data_;
-  int n_;
+  std::vector<double> data_;
 };
 
 bool vector_is_equal(const vector& x, const vector& y);

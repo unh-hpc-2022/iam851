@@ -3,20 +3,12 @@
 
 #include <stdio.h>
 
-vector::vector(int n) : data_(new double[n]), n_(n) {}
-
-vector::~vector()
-{
-  delete[] data_;
-  // The below isn't necessary, but may help make certain bugs more obvious.
-  // data = NULL;
-  // n = 0;
-}
+vector::vector(int n) : data_(n) {}
 
 void vector::print() const
 {
   printf("{");
-  for (int i = 0; i < n_; i++) {
+  for (int i = 0; i < size(); i++) {
     printf(" %g", (*this)(i));
   }
   printf(" }\n");
@@ -24,13 +16,13 @@ void vector::print() const
 
 int vector::size() const
 {
-  return n_;
+  return data_.size();
 }
 
 double vector::operator()(int i) const
 {
 #ifdef BOUNDS_CHECK
-  assert(i >= 0 && i < n_);
+  assert(i >= 0 && i < size());
 #endif
   return data_[i];
 }
@@ -38,7 +30,7 @@ double vector::operator()(int i) const
 double& vector::operator()(int i)
 {
 #ifdef BOUNDS_CHECK
-  assert(i >= 0 && i < n_);
+  assert(i >= 0 && i < size());
 #endif
   return data_[i];
 }
