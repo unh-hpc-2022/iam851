@@ -18,8 +18,7 @@ static inline int min(int i, int j)
 //
 // initializes the two matrices A, B, and the reference solution C_ref
 
-static void setup_test_matrices(struct matrix* A, struct matrix* B,
-                                struct matrix* C_ref)
+static void setup_test_matrices(matrix* A, matrix* B, matrix* C_ref)
 {
   // the test matrices are diagonal, which isn't really good,
   // a more general test case would be better.
@@ -46,7 +45,7 @@ int main(int argc, char** argv)
 {
   const int m = 5, n = 5, k = 2;
 
-  struct matrix A, B, C, C_ref;
+  matrix A, B, C, C_ref;
   matrix_construct(&A, m, k);
   matrix_construct(&B, k, n);
   matrix_construct(&C, m, n);

@@ -13,7 +13,7 @@
 int main(int argc, char** argv)
 {
   const int N = 4;
-  struct vector x, y, z, z_ref;
+  vector x, y, z, z_ref;
   vector_construct(&x, N);
   vector_construct(&y, N);
   vector_construct(&z, N);
