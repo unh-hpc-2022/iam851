@@ -12,9 +12,9 @@
 
 double vector_dot(const vector& x, const vector& y)
 {
-  assert(x.n == y.n);
+  assert(x.size() == y.size());
   double sum = 0.f;
-  for (int i = 0; i < x.n; i++) {
+  for (int i = 0; i < x.size(); i++) {
     sum += x(i) * y(i);
   }
   return sum;

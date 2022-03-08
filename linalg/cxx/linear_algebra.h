@@ -13,15 +13,18 @@
 // encapsulates what makes up a vector -- how many elements it contains (n), as
 // well as the actual elements data[0] ... data[n-1]
 
-struct vector
+class vector
 {
+public:
   vector(int n);
   ~vector();
   void print() const;
 
+  int size() const;
   double operator()(int i) const;
   double& operator()(int i);
 
+private:
   double* data;
   int n;
 };

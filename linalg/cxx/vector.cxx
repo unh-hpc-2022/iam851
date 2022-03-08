@@ -22,6 +22,11 @@ void vector::print() const
   printf(" }\n");
 }
 
+int vector::size() const
+{
+  return n;
+}
+
 double vector::operator()(int i) const
 {
 #ifdef BOUNDS_CHECK
@@ -40,10 +45,10 @@ double& vector::operator()(int i)
 
 bool vector_is_equal(const vector& x, const vector& y)
 {
-  if (x.n != y.n) {
+  if (x.size() != y.size()) {
     return false;
   }
-  for (int i = 0; i < x.n; i++) {
+  for (int i = 0; i < x.size(); i++) {
     if (x(i) != y(i)) {
       return false;
     }
