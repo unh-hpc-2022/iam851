@@ -25,8 +25,8 @@ public:
   double& operator()(int i);
 
 private:
-  double* data;
-  int n;
+  double* data_;
+  int n_;
 };
 
 bool vector_is_equal(const vector& x, const vector& y);
