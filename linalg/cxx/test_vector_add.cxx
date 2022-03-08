@@ -13,7 +13,7 @@
 int main(int argc, char** argv)
 {
   const int N = 4;
-  vector x(N), y(N), z(N), z_ref(N);
+  vector x(N), y(N), z_ref(N);
 
   for (int i = 0; i < x.size(); i++) {
     x(i) = 1 + i;
@@ -21,7 +21,7 @@ int main(int argc, char** argv)
     z_ref(i) = 3 + 2 * i;
   }
 
-  vector_add(x, y, z);
+  vector z = add(x, y);
   assert(z == z_ref);
 
   // z.print();
