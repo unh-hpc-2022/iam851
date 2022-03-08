@@ -20,9 +20,9 @@ int main(int argc, char** argv)
   vector_construct(z_ref, N);
 
   for (int i = 0; i < x.n; i++) {
-    VEC(&x, i) = 1 + i;
-    VEC(&y, i) = 2 + i;
-    VEC(&z_ref, i) = 3 + 2 * i;
+    VEC(x, i) = 1 + i;
+    VEC(y, i) = 2 + i;
+    VEC(z_ref, i) = 3 + 2 * i;
   }
 
   vector_add(x, y, z);
