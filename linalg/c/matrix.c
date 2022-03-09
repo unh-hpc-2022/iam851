@@ -28,3 +28,20 @@ void matrix_print(const struct matrix* A)
   }
   printf("}\n");
 }
+
+bool matrix_is_equal(const struct matrix* A, const struct matrix* B)
+{
+  if (A->m != B->m || A->n != B->n) {
+    return false;
+  }
+
+  for (int i = 0; i < A->m; i++) {
+    for (int j = 0; j < A->n; j++) {
+      if (MAT(A, i, j) != MAT(B, i, j)) {
+        return false;
+      }
+    }
+  }
+
+  return true;
+}

@@ -9,14 +9,13 @@
 // B: 2nd input matrix (k x n matrix)
 // C: result (m x n matrix)
 
-void matrix_matrix_mul(const struct matrix* A, const struct matrix* B,
-                       struct matrix* C)
+void matrix_matrix_mul(const matrix& A, const matrix& B, matrix& C)
 {
-  for (int i = 0; i < C->m; i++) {
-    for (int j = 0; j < C->n; j++) {
-      MAT(C, i, j) = 0.;
-      for (int k = 0; k < A->n; k++) {
-        MAT(C, i, j) += MAT(A, i, k) * MAT(B, k, j);
+  for (int i = 0; i < C.n_rows(); i++) {
+    for (int j = 0; j < C.n_cols(); j++) {
+      C(i, j) = 0.;
+      for (int k = 0; k < A.n_cols(); k++) {
+        C(i, j) += A(i, k) * B(k, j);
       }
     }
   }
