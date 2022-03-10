@@ -2,6 +2,9 @@
 #ifndef LINEAR_ALGEBRA_H
 #define LINEAR_ALGEBRA_H
 
+// uncomment below to get bounds checking
+// #define XTENSOR_ENABLE_ASSERT 1
+
 #include <xtensor/xtensor.hpp>
 #include <xtensor/xio.hpp>
 
