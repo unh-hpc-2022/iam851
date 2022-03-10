@@ -25,13 +25,11 @@ TEST(LinearAlgebra, matrix_vector_mul)
   const int N = 3;
   vector x = {1., 2., 3.};
   vector y = xt::empty<double>({3});
-  matrix A(N, N);
-
-  for (int i = 0; i < N; i++) {
-    A(i, i) = 1 + i;
-  }
-  // add one off-diagonal non-zero element
-  A(0, 1) = 1.;
+  // clang-format off
+  matrix A = {{1., 1., 0.},
+              {0., 2., 0.},
+              {0., 0., 3.}};
+  // clang-format on
 
   matrix_vector_mul(A, x, y);
   EXPECT_EQ(y, (vector{3., 4., 9.}));
@@ -49,14 +47,13 @@ static void setup_test_matrices(matrix& A, matrix& B, matrix& C_ref)
 
   // the matrices are initialized to zero, so we only set the non-zero elements
   // on the diagonal
-  for (int i = 0; i < std::min(A.n_rows(), A.n_cols()); i++) {
+  for (int i = 0; i < std::min(A.shape(0), A.shape(1)); i++) {
     A(i, i) = i;
   }
-  for (int i = 0; i < std::min(B.n_rows(), B.n_cols()); i++) {
+  for (int i = 0; i < std::min(B.shape(0), B.shape(0)); i++) {
     B(i, i) = i;
   }
-  for (int i = 0;
-       i < std::min(std::min(C_ref.n_rows(), C_ref.n_cols()), A.n_cols());
+  for (int i = 0; i < std::min({C_ref.shape(0), C_ref.shape(1), A.shape(1)});
        i++) {
     C_ref(i, i) = i * i;
   }
@@ -66,7 +63,10 @@ TEST(LinearAlgebra, matrix_matrix_mul)
 {
   const int m = 5, n = 5, k = 2;
 
-  matrix A(m, k), B(k, n), C(m, n), C_ref(m, n);
+  matrix A = xt::zeros<double>({m, k});
+  matrix B = xt::zeros<double>({k, n});
+  matrix C = xt::zeros<double>({m, n});
+  matrix C_ref = xt::zeros<double>({m, n});
 
   // build test matrices
   setup_test_matrices(A, B, C_ref);

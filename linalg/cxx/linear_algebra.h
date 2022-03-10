@@ -3,38 +3,10 @@
 #define LINEAR_ALGEBRA_H
 
 #include <xtensor/xtensor.hpp>
-
-#include <ostream>
-#include <vector>
-
-// uncomment the following to enable bounds checking
-//#define BOUNDS_CHECK
+#include <xtensor/xio.hpp>
 
 using vector = xt::xtensor<double, 1>;
-
-// matrix
-//
-// encapsulates what makes up a matrix -- how many rows (m), how many columns,
-// as well as the actual elements data[0] ... data[m*n-1]
-
-class matrix
-{
-public:
-  matrix(int n_rows, int n_cols);
-
-  double operator()(int i, int j) const;
-  double& operator()(int i, int j);
-
-  int n_rows() const { return m_; }
-  int n_cols() const { return n_; }
-
-private:
-  int m_, n_;
-  std::vector<double> data_;
-};
-
-bool operator==(const matrix& A, const matrix& B);
-std::ostream& operator<<(std::ostream& os, const matrix& A);
+using matrix = xt::xtensor<double, 2>;
 
 double dot(const vector& x, const vector& y);
 void matrix_vector_mul(const matrix& A, const vector& x, vector& y);

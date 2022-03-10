@@ -11,10 +11,14 @@
 
 void matrix_matrix_mul(const matrix& A, const matrix& B, matrix& C)
 {
-  for (int i = 0; i < C.n_rows(); i++) {
-    for (int j = 0; j < C.n_cols(); j++) {
+  assert(A.shape(1) == B.shape(0));
+  assert(A.shape(0) == C.shape(0));
+  assert(B.shape(1) == C.shape(1));
+
+  for (int i = 0; i < C.shape(0); i++) {
+    for (int j = 0; j < C.shape(1); j++) {
       C(i, j) = 0.;
-      for (int k = 0; k < A.n_cols(); k++) {
+      for (int k = 0; k < A.shape(1); k++) {
         C(i, j) += A(i, k) * B(k, j);
       }
     }
