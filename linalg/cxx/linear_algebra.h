@@ -2,32 +2,15 @@
 #ifndef LINEAR_ALGEBRA_H
 #define LINEAR_ALGEBRA_H
 
+#include <xtensor/xtensor.hpp>
+
 #include <ostream>
 #include <vector>
 
 // uncomment the following to enable bounds checking
 //#define BOUNDS_CHECK
 
-// vector
-//
-// encapsulates what makes up a vector -- how many elements it contains (n), as
-// well as the actual elements data[0] ... data[n-1]
-
-class vector
-{
-public:
-  vector(int n);
-
-  int size() const;
-  double operator()(int i) const;
-  double& operator()(int i);
-
-private:
-  std::vector<double> data_;
-};
-
-bool operator==(const vector& x, const vector& y);
-std::ostream& operator<<(std::ostream& os, const vector& v);
+using vector = xt::xtensor<double, 1>;
 
 // matrix
 //
@@ -54,7 +37,6 @@ bool operator==(const matrix& A, const matrix& B);
 std::ostream& operator<<(std::ostream& os, const matrix& A);
 
 double dot(const vector& x, const vector& y);
-vector operator+(const vector& x, const vector& y);
 void matrix_vector_mul(const matrix& A, const vector& x, vector& y);
 void matrix_matrix_mul(const matrix& A, const matrix& B, matrix& C);
 

@@ -5,50 +5,36 @@
 
 TEST(LinearAlgebra, vector_dot)
 {
-  const int N = 3;
-  vector x(N), y(N);
-
-  for (int i = 0; i < x.size(); i++) {
-    x(i) = 1 + i;
-  }
-
-  for (int i = 0; i < y.size(); i++) {
-    y(i) = 2 + i;
-  }
+  vector x = {1., 2., 3.};
+  vector y = {2., 3., 4.};
 
   EXPECT_EQ(dot(x, y), 20.);
 }
 
 TEST(LinearAlgebra, vector_add)
 {
-  const int N = 4;
-  vector x(N), y(N), z_ref(N);
-
-  for (int i = 0; i < x.size(); i++) {
-    x(i) = 1 + i;
-    y(i) = 2 + i;
-    z_ref(i) = 3 + 2 * i;
-  }
+  vector x = {1., 2., 3., 4.};
+  vector y = {2., 3., 4., 5.};
 
   vector z = x + y;
-  EXPECT_EQ(z, z_ref);
+  EXPECT_EQ(z, (vector{3., 5., 7., 9.}));
 }
 
 TEST(LinearAlgebra, matrix_vector_mul)
 {
   const int N = 3;
-  vector x(N), y(N);
+  vector x = {1., 2., 3.};
+  vector y = xt::empty<double>({3});
   matrix A(N, N);
 
   for (int i = 0; i < N; i++) {
-    x(i) = 1 + i;
     A(i, i) = 1 + i;
   }
   // add one off-diagonal non-zero element
   A(0, 1) = 1.;
 
   matrix_vector_mul(A, x, y);
-  EXPECT_TRUE(y(0) == 3. && y(1) == 4. && y(2) == 9.);
+  EXPECT_EQ(y, (vector{3., 4., 9.}));
 }
 
 // ----------------------------------------------------------------------
