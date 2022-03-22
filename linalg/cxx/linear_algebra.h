@@ -9,7 +9,7 @@
 #include <xtensor/xio.hpp>
 
 using vector = xt::xtensor<double, 1>;
-using matrix = xt::xtensor<double, 2>;
+using matrix = xt::xtensor<double, 2, xt::layout_type::column_major>;
 
 double dot(const vector& x, const vector& y);
 vector dot(const matrix& A, const vector& x);
