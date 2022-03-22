@@ -24,14 +24,13 @@ TEST(LinearAlgebra, matrix_vector_mul)
 {
   const int N = 3;
   vector x = {1., 2., 3.};
-  vector y = xt::empty<double>({3});
   // clang-format off
   matrix A = {{1., 1., 0.},
               {0., 2., 0.},
               {0., 0., 3.}};
   // clang-format on
 
-  matrix_vector_mul(A, x, y);
+  vector y = dot(A, x);
   EXPECT_EQ(y, (vector{3., 4., 9.}));
 }
 
