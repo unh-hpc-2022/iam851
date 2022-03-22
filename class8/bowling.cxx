@@ -78,3 +78,10 @@ TEST(Bowling, Strike)
   EXPECT_EQ(rolls.size(), 19);
   EXPECT_EQ(bowlingScore(rolls), 20 + 14 + 6 + 12 + 15 + 7);
 }
+
+TEST(Bowling, PerfectGame)
+{
+  std::vector<int> rolls = {10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10};
+  EXPECT_EQ(rolls.size(), 12);
+  EXPECT_EQ(bowlingScore(rolls), 300);
+}
