@@ -11,7 +11,7 @@
 
 int bowlingScore(const std::vector<int>& rolls)
 {
-  return -1;
+  return 0;
 }
 
 // ======================================================================
