@@ -64,3 +64,12 @@ TEST(Bowling, MoreSpares)
   EXPECT_EQ(rolls.size(), 20);
   EXPECT_EQ(bowlingScore(rolls), 3 + 14 + 6 + 12 + 15 + 7);
 }
+
+TEST(Bowling, Strike)
+{
+  std::vector<int> rolls = {
+    10, 7, 3, 4, 2, 0, 0, 0, 0, 4, 6, 2, 8, 5, 2, 0, 0, 0, 0,
+  };
+  EXPECT_EQ(rolls.size(), 19);
+  EXPECT_EQ(bowlingScore(rolls), 20 + 14 + 6 + 12 + 15 + 7);
+}
