@@ -40,3 +40,12 @@ TEST(Bowling, RegularGame)
   EXPECT_EQ(rolls.size(), 20);
   EXPECT_EQ(bowlingScore(rolls), 14);
 }
+
+TEST(Bowling, Spare)
+{
+  std::vector<int> rolls = {
+    7, 3, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  };
+  EXPECT_EQ(rolls.size(), 20);
+  EXPECT_EQ(bowlingScore(rolls), 14 + 6);
+}
