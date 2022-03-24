@@ -4,4 +4,4 @@ project(IAM851)
 
 include(CTest)
 
-add_subdirectory(linalg)
+add_subdirectory(class16)
