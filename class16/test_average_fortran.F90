@@ -5,7 +5,7 @@
 program test_vector_average
   implicit none
 
-  integer, parameter :: n = 50
+  integer, parameter :: n = 500000000
   real :: cc(0:n-1), nc(0:n)
   real :: dx, pi, x
   real(kind=8) :: tbeg, tend, wtime
@@ -18,12 +18,12 @@ program test_vector_average
      nc(i) = sin(x) + 1./3. * sin(3.*x);
   end do
 
-  open(11, file="x_nc.asc")
-  do i = 0, n
-     x = i * dx;
-     write(11,*) x, nc(i)
-  end do
-  close(11)
+!   open(11, file="x_nc.asc")
+!   do i = 0, n
+!      x = i * dx;
+!      write(11,*) x, nc(i)
+!   end do
+!   close(11)
 
   do i = 1, 5
    tbeg = wtime()
@@ -32,12 +32,12 @@ program test_vector_average
    print *,'took', tend-tbeg, 'seconds'
   end do
 
-  open(11, file="x_cc.asc")
-  do i = 0, n-1
-     x = (i + .5) * dx;
-     write(11,*) x, cc(i)
-  end do
-  close(11)
+!   open(11, file="x_cc.asc")
+!   do i = 0, n-1
+!      x = (i + .5) * dx;
+!      write(11,*) x, cc(i)
+!   end do
+!   close(11)
 
 end program test_vector_average
 
