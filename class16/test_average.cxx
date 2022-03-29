@@ -61,7 +61,9 @@ int main(int argc, char** argv)
   auto f_nc = make_func_nc();
   // write_nc(f_nc, "f_nc.asc");
 
-  auto f_cc = avg(f_nc);
+  for (int n = 0; n < 5; n++) {
+    auto f_cc = avg(f_nc);
+  }
 
   // write_cc(f_cc, "f_cc.asc");
 }
