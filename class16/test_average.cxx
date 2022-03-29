@@ -1,4 +1,6 @@
 
+#include "wtime.h"
+
 #include <xtensor/xio.hpp>
 #include <xtensor/xtensor.hpp>
 
@@ -27,9 +29,12 @@ xt::xtensor<double, 1> avg(const xt::xtensor<double, 1>& f_nc)
 {
   auto f_cc = xt::empty<double>({N});
 
+  double t1 = Wtime();
   for (int i = 0; i < N; i++) {
     f_cc(i) = .5 * (f_nc(i) + f_nc(i + 1));
   }
+  double t2 = Wtime();
+  std::cout << "time for average: " << t2 - t1 << " s\n";
 
   return f_cc;
 }
@@ -56,5 +61,6 @@ int main(int argc, char** argv)
   write_nc(f_nc, "f_nc.asc");
 
   auto f_cc = avg(f_nc);
+
   write_cc(f_cc, "f_cc.asc");
 }
