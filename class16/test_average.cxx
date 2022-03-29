@@ -10,7 +10,7 @@
 
 // ugh, global variables are ugly
 
-const size_t N = 50;
+const size_t N = 50000000;
 const double dx = 2. * M_PI / N;
 
 xt::xtensor<double, 1> make_func_nc()
@@ -58,9 +58,9 @@ void write_cc(const xt::xtensor<double, 1>& f, const std::string& filename)
 int main(int argc, char** argv)
 {
   auto f_nc = make_func_nc();
-  write_nc(f_nc, "f_nc.asc");
+  // write_nc(f_nc, "f_nc.asc");
 
   auto f_cc = avg(f_nc);
 
-  write_cc(f_cc, "f_cc.asc");
+  // write_cc(f_cc, "f_cc.asc");
 }
