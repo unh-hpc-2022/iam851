@@ -6,11 +6,12 @@ program test_vector_average
   implicit none
 
   integer, parameter :: n = 500000000
-  real :: cc(0:n-1), nc(0:n)
+  real, dimension(:), allocatable :: cc, nc
   real :: dx, pi, x
   real(kind=8) :: tbeg, tend, wtime
   integer :: i
 
+  allocate(cc(0:n-1), nc(0:n))
   pi = 4 * atan(1.)
   dx = 2. * pi / n
   do i = 0, n

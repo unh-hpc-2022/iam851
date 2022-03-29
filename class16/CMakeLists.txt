@@ -23,7 +23,7 @@ CPMAddPackage(
   GIT_TAG 0.23.4
   VERSION 0.23.4
 )
-  
+
 add_executable(test_integration test_integration.cxx)
 #target_link_libraries(test_integration OpenMP::OpenMP_CXX)
 
@@ -32,4 +32,4 @@ target_link_libraries(test_average xtensor)
 target_link_libraries(test_average OpenMP::OpenMP_CXX)
 
 add_executable(test_average_fortran test_average_fortran.F90 vector_average_fortran.F90)
-#target_link_libraries(test_integration OpenMP::OpenMP_Fortran)
+target_link_libraries(test_average_fortran OpenMP::OpenMP_Fortran)
