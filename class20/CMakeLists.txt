@@ -5,6 +5,8 @@ project(Mandelbrot)
 
 include(cmake/CPM.cmake)
 
+find_package(OpenMP REQUIRED)
+
 CPMAddPackage(
   NAME xtl
   GITHUB_REPOSITORY xtensor-stack/xtl
@@ -20,4 +22,4 @@ CPMAddPackage(
 )
 
 add_executable(mandelbrot mandelbrot.cxx)
-target_link_libraries(mandelbrot PRIVATE xtensor)
+target_link_libraries(mandelbrot PRIVATE xtensor OpenMP::OpenMP_CXX)
