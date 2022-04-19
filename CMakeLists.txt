@@ -4,5 +4,5 @@ project(IAM851)
 
 include(CTest)
 
-add_subdirectory(class16)
 add_subdirectory(class21)
+add_subdirectory(class23)
