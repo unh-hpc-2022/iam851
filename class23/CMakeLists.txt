@@ -21,5 +21,5 @@ CPMAddPackage(
   VERSION 0.24.0
 )
 
-add_executable(test_derivative test_derivative.cxx)
+add_executable(test_derivative test_derivative.cxx derivative.cxx)
 target_link_libraries(test_derivative PRIVATE MPI::MPI_CXX xtensor)
