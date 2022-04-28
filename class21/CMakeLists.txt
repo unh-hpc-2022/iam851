@@ -23,3 +23,6 @@ include(cmake/CPM.cmake)
 
 add_executable(test_mpi test_mpi.cxx)
 target_link_libraries(test_mpi PRIVATE MPI::MPI_CXX)
+
+add_executable(message_mpi message_mpi.cxx)
+target_link_libraries(message_mpi PRIVATE MPI::MPI_CXX)
