@@ -68,10 +68,10 @@ void write_output_onefile(const mpi_domain& domain,
 
 int main(int argc, char** argv)
 {
-  const int N = 12800;        // number of grid points
+  const int N = 128;          // number of grid points
   const double L = 2. * M_PI; // total size of domain
-  const int n_timesteps = 100;
-  const int output_every = -1;
+  const int n_timesteps = 100000;
+  const int output_every = 1000;
 
   MPI_Init(&argc, &argv);
   mpi_domain domain(MPI_COMM_WORLD, N, L);
