@@ -6,3 +6,4 @@ include(CTest)
 
 add_subdirectory(class21)
 add_subdirectory(class23)
+add_subdirectory(class28)
